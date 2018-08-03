@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Do you want to stop training ?</h1>
+<mat-dialog-content>
+  <p>You're already at {{ passedData.currentProgress }}%</p>
+</mat-dialog-content>
+<mat-dialog-actions fxLayoutAlign="end">
+  <button mat-button color="primary" [mat-dialog-close]="true">Yes</button>
+  <button mat-button color="warn" [mat-dialog-close]="false">No</button>
+</mat-dialog-actions>

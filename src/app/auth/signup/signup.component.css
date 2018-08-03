@@ -1,0 +1,13 @@
+mat-form-field {
+    width: 400px;
+}
+
+@media screen and (max-width: 599px) {
+    mat-form-field, mat-card {
+        width: 100%;
+    }
+}
+
+.form-container {
+    padding: 50px 0;
+}

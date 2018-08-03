@@ -1,0 +1,22 @@
+<div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="15px" class="current-training">
+  <mat-progress-spinner mode="determinate" 
+                        [value]="progress"
+                        *ngIf="progress<100"></mat-progress-spinner>
+  <h2>{{ progress }}%</h2>
+  <p *ngIf="progress<100">Come on, you can do it !!</p>
+  <h3 *ngIf="progress>=100" style="text-align: center">Congratulations you've finished this training!!</h3>
+  <div fxLayout fxLayoutGap="10px">
+    <button mat-raised-button color="accent" 
+            (click)="pauseTimer()"
+            *ngIf="progress<100">
+              <mat-icon>{{timeRunning ? 'pause' : 'play_arrow'}}</mat-icon> {{timeRunning ? 'PAUSE' : 'RESUME'}} </button>
+    <button mat-raised-button color="warn" 
+            (click)="progress>=100? exitTraining.emit() : stopTimer()"
+            *ngIf="progress<100"><mat-icon>stop</mat-icon> STOP</button>
+    <button mat-raised-button style="background-color: #00897b; color: white"
+            (click)="exitTraining.emit()"
+            *ngIf="progress>=100">DONE <mat-icon>check</mat-icon></button>
+  </div>
+</div>
+  
+

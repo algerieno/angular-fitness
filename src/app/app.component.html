@@ -1,3 +1,11 @@
-<button mat-icon-button color="warn"><mat-icon>home</mat-icon></button>
-<button mat-icon-button color="primary"><mat-icon>home</mat-icon></button>
-<button mat-icon-button color="accent"><mat-icon>home</mat-icon></button>
+<mat-sidenav-container>
+    <mat-sidenav #sidenav role="navigation">
+        <app-sidenav (sidenavClose)="sidenav.close()"></app-sidenav>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <app-header (toggleSidenav)="sidenav.toggle()"></app-header>
+        <main>
+            <router-outlet></router-outlet>
+        </main>
+    </mat-sidenav-content>
+</mat-sidenav-container>

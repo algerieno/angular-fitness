@@ -1,0 +1,52 @@
+<section>
+  <div fxLayoutAlign="center center" fxLayout="row" class="form-container">
+    <mat-card>
+      <h3 fxLayoutAlign="center">Sign up</h3>
+        <form fxLayout="column" 
+        fxLayoutAlign="center center" 
+        fxLayoutGap="10px" 
+        (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <mat-form-field>
+      <input type="email" 
+             matInput placeholder="E-mail" 
+             ngModel name="email" 
+             required 
+             email
+             #emailInput="ngModel">
+      <mat-error *ngIf="emailInput.hasError('required')">this field is required</mat-error>
+      <mat-error *ngIf="!emailInput.hasError('required')">invalid email</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input type="password" 
+             matInput 
+             placeholder="password" 
+             ngModel 
+             name="password"
+             minlength="6"
+             required
+             #passwordInput="ngModel">
+      <!-- <mat-hint align="end">{{ passwordInput.value?.length }} / 6</mat-hint> -->
+      <mat-error *ngIf="passwordInput.hasError('required')">this field is required</mat-error>
+      <mat-error *ngIf="!passwordInput.hasError('required')">minimal length is 6 caracters</mat-error>
+      <mat-error *ngIf="!passwordInput.hasError('required')" align="end">{{ passwordInput.value?.length }} / 6</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput 
+             placeholder="Birth date" 
+             [matDatepicker]="picker" 
+             readonly
+             required
+             [min]="minDate"
+             [max]="maxDate"
+             ngModel
+             name="birthdate"
+             >
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+      <mat-checkbox required ngModel name="agreement" color="primary">agree to terms conditions *</mat-checkbox>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!f.valid">Submit</button>
+  </form>
+    </mat-card>
+  </div>
+</section>

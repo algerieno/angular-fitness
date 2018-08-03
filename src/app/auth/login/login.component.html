@@ -1,0 +1,36 @@
+<section>
+  <div fxLayoutAlign="center center" fxLayout="row" class="form-container">
+      <mat-card>
+        <h3 fxLayoutAlign="center">Login</h3>
+          <form fxLayout="column" 
+          fxLayoutAlign="center center" 
+          fxLayoutGap="10px" 
+          (ngSubmit)="onSubmit(f)" #f="ngForm">
+      <mat-form-field>
+        <input type="email" 
+               matInput placeholder="E-mail" 
+               ngModel name="email" 
+               required 
+               email
+               #emailInput="ngModel">
+        <mat-error *ngIf="emailInput.hasError('required')">this field is required</mat-error>
+        <mat-error *ngIf="!emailInput.hasError('required')">invalid email</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input type="password" 
+               matInput 
+               placeholder="password" 
+               ngModel 
+               name="password"
+               required
+               #passwordInput="ngModel">
+        <mat-error *ngIf="passwordInput.hasError('required')">this field is required</mat-error>
+      </mat-form-field>
+        <mat-checkbox ngModel name="agreement" color="primary">Remember me</mat-checkbox>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!f.valid">Submit</button>
+    </form>
+      </mat-card>
+      
+  </div>
+    
+  </section>
