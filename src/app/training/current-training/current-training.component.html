@@ -1,4 +1,5 @@
 <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="15px" class="current-training">
+  <h1>{{ exercice.name }}</h1>
   <mat-progress-spinner mode="determinate" 
                         [value]="progress"
                         *ngIf="progress<100"></mat-progress-spinner>
@@ -11,10 +12,10 @@
             *ngIf="progress<100">
               <mat-icon>{{timeRunning ? 'pause' : 'play_arrow'}}</mat-icon> {{timeRunning ? 'PAUSE' : 'RESUME'}} </button>
     <button mat-raised-button color="warn" 
-            (click)="progress>=100? exitTraining.emit() : stopTimer()"
+            (click)="stopTimer()"
             *ngIf="progress<100"><mat-icon>stop</mat-icon> STOP</button>
     <button mat-raised-button style="background-color: #00897b; color: white"
-            (click)="exitTraining.emit()"
+            (click)="completeExercice()"
             *ngIf="progress>=100">DONE <mat-icon>check</mat-icon></button>
   </div>
 </div>
