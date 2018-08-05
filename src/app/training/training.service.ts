@@ -44,12 +44,16 @@ export class trainingService {
         this.exercices.push({
             ...this.selectedExercice,
             duration: this.selectedExercice.duration * progress / 100,
-            calories: this.selectedExercice.duration * progress / 100,
+            calories: this.selectedExercice.calories * progress / 100,
             date: new Date(),
-            state: 'completed'
+            state: 'cancelled'
         });
         this.selectedExercice= null;
         this.trainingStarted.next(false);
+    }
+
+    getAllExercices() {
+        return this.exercices.slice();
     }
 
     getSelectedExercice() {

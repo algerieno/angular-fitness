@@ -42,7 +42,7 @@
              name="birthdate"
              >
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
+      <mat-datepicker touchUi #picker></mat-datepicker>
     </mat-form-field>
       <mat-checkbox required ngModel name="agreement" color="primary">agree to terms conditions *</mat-checkbox>
     <button mat-raised-button color="primary" type="submit" [disabled]="!f.valid">Submit</button>
